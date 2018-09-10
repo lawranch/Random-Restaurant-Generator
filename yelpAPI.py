@@ -17,13 +17,13 @@ def build_search_link(parameters: [('name', 'type')]):
 
 
 def obtain_search_link_info(url: str):
-    conn = http.client.HTTPSConnection("api.yelp.com")
-    conn.request('GET', url, headers=headers)
-    res = conn.getresponse()
-    data = res.read()
-    response = json.loads(data.decode('utf-8'))
+    connection = http.client.HTTPSConnection("api.yelp.com")
+    connection.request('GET', url, headers=headers)
+    response = connection.getresponse()
+    data = response.read()
+    information = json.loads(data.decode('utf-8'))
     restaurant_list = []
-    for restaurant in response['businesses']:
+    for restaurant in information['businesses']:
         restaurant_list.append(restaurant['id'])
     return restaurant_list
     
@@ -37,10 +37,10 @@ def build_details_link(id: str):
 
 
 def obtain_restaurant_details(url: str):
-    conn = http.client.HTTPSConnection("api.yelp.com")
-    conn.request('GET', url, headers=headers)
-    res = conn.getresponse()
-    data = res.read()
-    response = json.loads(data.decode('utf-8'))
-    return response
+    connection = http.client.HTTPSConnection("api.yelp.com")
+    connection.request('GET', url, headers=headers)
+    response = connection.getresponse()
+    data = response.read()
+    information = json.loads(data.decode('utf-8'))
+    return information
    

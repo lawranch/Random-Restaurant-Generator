@@ -32,7 +32,7 @@ def obtain_price(parameters: []):
 
 
 def randomize_again():
-    answer = input("Would you like to randomize a different restaurant? (y / n)")
+    answer = input("Would you like to randomize a different restaurant? (y / n) ")
     return answer
 
     
